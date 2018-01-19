@@ -52,7 +52,7 @@ if (test_branches.contains(env.BRANCH_NAME)) {
   stage('Run integration tests'){
     parallel rpc: {
       stage('Run integration tests with rpc'){
-        node('tests-runner'){
+        node('fedora-tests-runner'){
           try {
             clone_devicehive_docker()
             dir('devicehive-docker/rdbms-image'){
@@ -79,7 +79,7 @@ if (test_branches.contains(env.BRANCH_NAME)) {
     },
     wsproxy: {
       stage('Run integration tests with ws-proxy'){
-        node('tests-runner'){
+        node('fedora-tests-runner'){
           try {
             clone_devicehive_docker()
             dir('devicehive-docker/rdbms-image'){
