@@ -2,7 +2,7 @@ properties([
   buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '7'))
 ])
 
-def test_branches = ["development", "master"]
+def test_branches = ["development", "master", "downgrade-mocha"]
 def publish_branches = ["development", "master"]
 def deploy_branches = ["development"]
 
@@ -177,7 +177,7 @@ def run_devicehive_tests() {
 
     echo("Install dependencies with npm")
     sh '''
-      sudo npm install -g mocha mochawesome
+      sudo npm install -g mocha@4.0.1 mochawesome
       sudo npm i
     '''
 
